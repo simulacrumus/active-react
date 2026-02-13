@@ -1,4 +1,4 @@
-import { Selectable } from "./Selectable";
+import type { Selectable } from "./Selectable";
 
 export interface HourOfDay extends Selectable {
   id: number;

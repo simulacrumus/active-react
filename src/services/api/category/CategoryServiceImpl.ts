@@ -33,8 +33,8 @@ export class CategoryServiceImpl implements CategoryService {
   }
 
   async getCategoriesByFacility(
-    params: Record<string, string>,
-    facilityId: number
+    _params: Record<string, string>,
+    facilityId: number,
   ): Promise<Category[]> {
     const allCategories: Category[] = [];
     let page: number = 0;
@@ -48,7 +48,7 @@ export class CategoryServiceImpl implements CategoryService {
             page: String(page),
             size: String(pageSize),
           },
-          facilityId
+          facilityId,
         );
       allCategories.push(...response.content);
 
@@ -63,18 +63,18 @@ export class CategoryServiceImpl implements CategoryService {
   }
 
   async getCategoryPage(
-    params: Record<string, string>
+    params: Record<string, string>,
   ): Promise<PageModel<Category>> {
     return this.client.get<PageModel<Category>>("/categories", params);
   }
 
   async getCategoryPageByFacility(
     params: Record<string, string>,
-    facilityId: number
+    facilityId: number,
   ): Promise<PageModel<Category>> {
     return this.client.get<PageModel<Category>>(
       `/facilities/${facilityId}/categories`,
-      params
+      params,
     );
   }
 

@@ -1,9 +1,9 @@
-import { Activity } from "./Activity";
-import { Category } from "./Category";
-import { Facility } from "./Facility";
-import { DayOfWeek } from "./DayOfWeek";
-import { HourOfDay } from "./HourOfDay";
-import { ScheduleSort } from "./Schedule";
+import type { Activity } from "./Activity";
+import type { Category } from "./Category";
+import type { DayOfWeek } from "./DayOfWeek";
+import type { Facility } from "./Facility";
+import type { HourOfDay } from "./HourOfDay";
+import type { ScheduleSort } from "./Schedule";
 
 export interface FilterOptions {
   initialCategories: Category[];

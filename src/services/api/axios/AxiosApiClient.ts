@@ -6,7 +6,7 @@ import i18n from "../../../../src/i18n";
 const ISO_DATE_FORMAT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d{6})?Z$/;
 
 const parseWithDates = (jsonString: string) => {
-  return JSON.parse(jsonString, (key, value) => {
+  return JSON.parse(jsonString, (_key, value) => {
     if (typeof value === "string" && ISO_DATE_FORMAT.test(value)) {
       return new Date(value);
     }
@@ -50,7 +50,7 @@ export class AxiosApiClient implements ApiClient {
       },
       (error) => {
         return Promise.reject(error);
-      }
+      },
     );
 
     this.client.interceptors.response.use(
@@ -72,7 +72,7 @@ export class AxiosApiClient implements ApiClient {
           console.error("Error setting up request:", error.message);
         }
         return Promise.reject(error);
-      }
+      },
     );
   }
 
@@ -84,7 +84,7 @@ export class AxiosApiClient implements ApiClient {
   async post<T>(
     url: string,
     data?: any,
-    params?: Record<string, string>
+    params?: Record<string, string>,
   ): Promise<T> {
     const response = await this.client.post<T>(url, data, { params });
     return response.data;
@@ -93,7 +93,7 @@ export class AxiosApiClient implements ApiClient {
   async put<T>(
     url: string,
     data?: any,
-    params?: Record<string, string>
+    params?: Record<string, string>,
   ): Promise<T> {
     const response = await this.client.put<T>(url, data, { params });
     return response.data;
@@ -102,7 +102,7 @@ export class AxiosApiClient implements ApiClient {
   async patch<T>(
     url: string,
     data?: any,
-    params?: Record<string, string>
+    params?: Record<string, string>,
   ): Promise<T> {
     const response = await this.client.patch<T>(url, data, { params });
     return response.data;

@@ -1,5 +1,5 @@
-import { ScheduleActivity } from "./API/ScheduleActivity";
-import { ScheduleFacility } from "./API/ScheduleFacility";
+import type { ScheduleActivity } from "./ScheduleActivity";
+import type { ScheduleFacility } from "./ScheduleFacility";
 
 export interface Schedule {
   id: number;

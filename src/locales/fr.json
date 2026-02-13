@@ -1,0 +1,92 @@
+{
+  "common": {
+    "welcome": "Bienvenue",
+    "change_language": "Changer la langue",
+    "search": "Recherche",
+    "filter": "Filtrer",
+    "filters": "Filtres",
+    "sort": "Trier",
+    "time": "Heure",
+    "nearby": "À proximité",
+    "schedules": "Horaires",
+    "reset": "Réinitialiser",
+    "apply": "Appliquer",
+    "day": "Jour",
+    "hour": "Heure",
+    "select": "Sélectionner",
+    "activity": "Activité",
+    "facility": "Installation",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système",
+    "caughtAll": "Vous les avez tous attrapés"
+  },
+  "app": {
+    "title": "Active",
+    "desc": "Horaires des activités libres de la Ville d'Ottawa"
+  },
+  "schedule": {
+    "empty": {
+      "title": "On dirait qu’y a rien à montrer",
+      "desc": "Essaie donc d’changer tes filtres"
+    }
+  },
+  "dayOfWeek": {
+    "Monday": {
+      "short": "Lun",
+      "full": "Lundi"
+    },
+    "Tuesday": {
+      "short": "Mar",
+      "full": "Mardi"
+    },
+    "Wednesday": {
+      "short": "Mer",
+      "full": "Mercredi"
+    },
+    "Thursday": {
+      "short": "Jeu",
+      "full": "Jeudi"
+    },
+    "Friday": {
+      "short": "Ven",
+      "full": "Vendredi"
+    },
+    "Saturday": {
+      "short": "Sam",
+      "full": "Samedi"
+    },
+    "Sunday": {
+      "short": "Dim",
+      "full": "Dimanche"
+    }
+  },
+  "hourOfDay": {
+    "6": "6 h 00",
+    "7": "7 h 00",
+    "8": "8 h 00",
+    "9": "9 h 00",
+    "10": "10 h 00",
+    "11": "11 h 00",
+    "12": "12 h 00",
+    "13": "13 h 00",
+    "14": "14 h 00",
+    "15": "15 h 00",
+    "16": "16 h 00",
+    "17": "17 h 00",
+    "18": "18 h 00",
+    "19": "19 h 00",
+    "20": "20 h 00",
+    "21": "21 h 00",
+    "22": "22 h 00",
+    "23": "23 h 00"
+  },
+  "terms": {
+    "title": "Conditions d'utilisation",
+    "desc": "En utilisant cette application, vous reconnaissez et acceptez les présentes conditions d'utilisation. Veuillez les lire attentivement avant de poursuivre.",
+    "action": "J'ai compris"
+  },
+  "error": {
+    "default": "Désolé, une erreur s'est produite"
+  }
+}

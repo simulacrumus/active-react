@@ -1,0 +1,92 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "change_language": "Change language",
+    "search": "Search",
+    "filter": "Filter",
+    "filters": "Filters",
+    "sort": "Sort",
+    "time": "Time",
+    "nearby": "Nearby",
+    "schedules": "Schedules",
+    "reset": "Reset",
+    "apply": "Apply",
+    "day": "Day",
+    "hour": "Hour",
+    "select": "Select",
+    "activity": "Activity",
+    "facility": "Facility",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "caughtAll": "You caught all"
+  },
+  "app": {
+    "title": "Active",
+    "desc": "City of Ottawa Drop-in Activity Schedules"
+  },
+  "schedule": {
+    "empty": {
+      "title": "Looks like there's nothing to show",
+      "desc": "Please try changing your filters"
+    }
+  },
+  "dayOfWeek": {
+    "Monday": {
+      "short": "Mon",
+      "full": "Monday"
+    },
+    "Tuesday": {
+      "short": "Tue",
+      "full": "Tuesday"
+    },
+    "Wednesday": {
+      "short": "Wed",
+      "full": "Wednesday"
+    },
+    "Thursday": {
+      "short": "Thu",
+      "full": "Thursday"
+    },
+    "Friday": {
+      "short": "Fri",
+      "full": "Friday"
+    },
+    "Saturday": {
+      "short": "Sat",
+      "full": "Saturday"
+    },
+    "Sunday": {
+      "short": "Sun",
+      "full": "Sunday"
+    }
+  },
+  "hourOfDay": {
+    "6": "6:00 AM",
+    "7": "7:00 AM",
+    "8": "8:00 AM",
+    "9": "9:00 AM",
+    "10": "10:00 AM",
+    "11": "11:00 AM",
+    "12": "12:00 PM",
+    "13": "1:00 PM",
+    "14": "2:00 PM",
+    "15": "3:00 PM",
+    "16": "4:00 PM",
+    "17": "5:00 PM",
+    "18": "6:00 PM",
+    "19": "7:00 PM",
+    "20": "8:00 PM",
+    "21": "9:00 PM",
+    "22": "10:00 PM",
+    "23": "11:00 PM"
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "desc": "By using this application, you acknowledge and agree to the following terms and conditions. Please read them carefully before proceeding.",
+    "action": "Understood"
+  },
+  "error": {
+    "default": "Sorry, something went wrong"
+  }
+}

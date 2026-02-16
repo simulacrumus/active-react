@@ -14,7 +14,7 @@ export function MainLayout({ header, main }: MainLayoutProps) {
     <div className="min-h-screen bg-background text-foreground pb-12">
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b h-16",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b h-20 md:h-16",
           "md:sticky md:top-0",
           "bg-background/80 backdrop-blur-md border-border",
           "w-full px-4",

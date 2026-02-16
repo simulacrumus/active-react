@@ -226,7 +226,7 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
 
   const handleActivityChange = useCallback(
     async (activity: Activity | null): Promise<void> => {
-      console.log("handle activity change: ", activity);
+      // console.log("handle activity change: ", activity);
       const token = Symbol();
       lastRequestRef.current = token;
       setIsLoadingOptions(true);
@@ -277,7 +277,7 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
 
   const handleFacilityChange = useCallback(
     async (facility: Facility | null): Promise<void> => {
-      console.log("handle facility change: ", facility);
+      // console.log("handle facility change: ", facility);
       const token = Symbol();
       lastRequestRef.current = token;
       setIsLoadingOptions(true);
@@ -350,7 +350,7 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
           return;
         }
       }
-      console.log("new sort: ", newSort);
+      // console.log("new sort: ", newSort);
       setSort(newSort);
     },
     [locationData, sort],

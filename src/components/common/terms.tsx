@@ -34,7 +34,7 @@ export function TermsAndConditions() {
   }, []);
 
   function onAccept() {
-    console.log("Terms accepted");
+    // console.log("Terms accepted");
     localStorage.setItem("termsAccepted", "true");
     setTermsHasAccepted(true);
   }

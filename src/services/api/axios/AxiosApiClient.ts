@@ -43,8 +43,8 @@ export class AxiosApiClient implements ApiClient {
 
     this.client.interceptors.request.use(
       (config) => {
-        console.log("Request URL:", `${config.baseURL}${config.url}`);
-        console.log("Request Params:", config.params);
+        // console.log("Request URL:", `${config.baseURL}${config.url}`);
+        // console.log("Request Params:", config.params);
         config.headers["Accept-Language"] = i18n.language;
         return config;
       },

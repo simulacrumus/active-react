@@ -5,6 +5,7 @@ import React, {
   useEffect,
   type ReactNode,
 } from "react";
+import { useTranslation } from "react-i18next";
 
 export interface Coordinates {
   latitude: number;
@@ -42,6 +43,7 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
   timeout = 10000,
   maximumAge = 100000,
 }) => {
+  const { t } = useTranslation();
   const [location, setLocation] = useState<Coordinates | null>(null);
   const [permission, setPermission] = useState<PermissionState | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -92,26 +94,26 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
 
     switch (err.code) {
       case err.PERMISSION_DENIED:
-        errorMessage = "Location permission denied";
+        errorMessage = t("error.location.permissionDenied");
         setPermission("denied");
         break;
       case err.POSITION_UNAVAILABLE:
-        errorMessage = "Location information unavailable";
+        errorMessage = t("error.location.positionUnavailable");
         break;
       case err.TIMEOUT:
-        errorMessage = "Location request timed out";
+        errorMessage = t("error.location.timeout");
         break;
       default:
-        errorMessage = "An unknown error occurred";
+        errorMessage = t("error.location.unknown");
     }
 
     setError(errorMessage);
     setIsLoading(false);
-  }, []);
+  }, [t]);
 
   const requestLocation = useCallback(async (): Promise<boolean> => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser");
+      setError(t("error.location.notSupported"));
       return false;
     }
 
@@ -135,7 +137,7 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
 
   const watchLocation = useCallback(() => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser");
+      setError(t("error.location.notSupported"));
       return;
     }
 
@@ -215,28 +217,3 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
   return React.createElement(LocationContext.Provider, { value }, children);
 };
 
-// (Haversine formula)
-export const calculateDistance = (
-  coord1: Coordinates,
-  coord2: Coordinates
-): number => {
-  const R = 6371; // Earth's radius in kilometers
-  const dLat = toRadians(coord2.latitude - coord1.latitude);
-  const dLon = toRadians(coord2.longitude - coord1.longitude);
-
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(toRadians(coord1.latitude)) *
-      Math.cos(toRadians(coord2.latitude)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const distance = R * c;
-
-  return distance; // Distance in kilometers
-};
-
-const toRadians = (degrees: number): number => {
-  return degrees * (Math.PI / 180);
-};

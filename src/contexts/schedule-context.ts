@@ -28,6 +28,7 @@ import {
 } from "@/constants/filters";
 import { useLocation } from "@/hooks/useLocation";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 
 // ============================================================================
 // Types & Interfaces
@@ -206,8 +207,8 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
         daysOfWeek: DAYS_OF_WEEK,
         hoursOfDay: HOURS_OF_DAY,
       });
-    } catch (error) {
-      console.error("Error loading filter options:", error);
+    } catch {
+      // ignore — filter options will remain at previous state
     } finally {
       setIsLoadingOptions(false);
     }
@@ -264,8 +265,8 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
             selectedFacility: null,
           }));
         }
-      } catch (error) {
-        console.error("Error updating facilities:", error);
+      } catch {
+        // ignore — facilities will remain at previous state
       } finally {
         if (lastRequestRef.current === token) {
           setIsLoadingOptions(false);
@@ -319,8 +320,8 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
             selectedActivity: null,
           }));
         }
-      } catch (error) {
-        console.error("Error updating activities:", error);
+      } catch {
+        // ignore — activities will remain at previous state
       } finally {
         if (lastRequestRef.current === token) {
           setIsLoadingOptions(false);
@@ -335,25 +336,20 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
       // Handle location permission for "Nearby" sort
       if (newSort === "Nearby" && !locationData.location) {
         if (locationData.permission === "denied") {
-          alert(
-            "Location access was denied. Please enable location permissions in your browser settings to use nearby sorting.",
-          );
+          toast.error(t("error.location.sortNearbyDenied"));
           return;
         }
 
         const success = await locationData.requestLocation();
 
         if (!success) {
-          alert(
-            "Unable to get your location. Please enable location permissions in your browser settings to use nearby sorting.",
-          );
+          toast.error(t("error.location.sortNearbyFailed"));
           return;
         }
       }
-      // console.log("new sort: ", newSort);
       setSort(newSort);
     },
-    [locationData, sort],
+    [locationData, t],
   );
 
   const setSelectedDayOfWeek = useCallback((day: DayOfWeek | null): void => {
@@ -425,8 +421,7 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
           setSchedules(page.content);
         }
         setError(undefined);
-      } catch (error) {
-        console.error("Error fetching schedules:", error);
+      } catch {
         if (!append) {
           setError(t("error.default"));
           setSchedules([]);
@@ -440,15 +435,10 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
 
   useEffect(() => {
     if (!didLoadRef.current) return;
-
-    const handleLanguageChange = async () => {
-      await loadInitialFilterOptions();
-      if (schedules.length > 0) {
-        await fetchSchedulesPage(filters, 0, false);
-      }
-    };
-
-    handleLanguageChange();
+    if (schedules.length > 0) {
+      fetchSchedulesPage(filters, 0, false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i18n.language]);
 
   // ============================================================================
@@ -514,7 +504,7 @@ export function ScheduleProvider({ children }: ScheduleProviderProps) {
       filters.selectedHour !== lastAppliedFilters.selectedHour ||
       filters.searchQuery.trim() !== lastAppliedFilters.searchQuery.trim()
     );
-  }, [filters, sort]);
+  }, [filters, lastAppliedFilters]);
 
   // ============================================================================
   // Context Value

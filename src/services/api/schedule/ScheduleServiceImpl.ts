@@ -9,8 +9,8 @@ export class ScheduleServiceImpl implements ScheduleService {
     this.client = client;
   }
 
-  async getSchedules(params: Record<string, string>): Promise<any> {
-    return this.client.get("/schedules", params);
+  async getSchedules(params: Record<string, string>): Promise<PageModel<Schedule>> {
+    return this.client.get<PageModel<Schedule>>("/schedules", params);
   }
 
   async getSchedulesByFacility(

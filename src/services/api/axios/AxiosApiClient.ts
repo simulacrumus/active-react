@@ -2,6 +2,7 @@ import type { ApiClient } from "../ApiClient";
 import axios from "axios";
 import type { AxiosInstance } from "axios";
 import i18n from "../../../../src/i18n";
+import { config } from "../../../../src/config";
 
 const ISO_DATE_FORMAT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d{6})?Z$/;
 
@@ -24,7 +25,7 @@ export class AxiosApiClient implements ApiClient {
         "Content-Type": "application/json",
         "x-api-key": apiKey,
         "x-app-type": "vite-react",
-        "x-app-version": "1.0.1",
+        "x-app-version": config.app.version,
         "x-device-id": deviceId,
       },
       transformResponse: [
@@ -56,21 +57,6 @@ export class AxiosApiClient implements ApiClient {
     this.client.interceptors.response.use(
       (response) => response,
       (error) => {
-        if (error.response) {
-          if (error.response.status === 401) {
-            console.error("Authentication required");
-          } else if (error.response.status === 403) {
-            console.error("Access forbidden");
-          } else if (error.response.status === 404) {
-            console.error("Resource not found");
-          } else if (error.response.status === 500) {
-            console.error("Server error");
-          }
-        } else if (error.request) {
-          console.error("No response received from server");
-        } else {
-          console.error("Error setting up request:", error.message);
-        }
         return Promise.reject(error);
       },
     );
@@ -83,7 +69,7 @@ export class AxiosApiClient implements ApiClient {
 
   async post<T>(
     url: string,
-    data?: any,
+    data?: unknown,
     params?: Record<string, string>,
   ): Promise<T> {
     const response = await this.client.post<T>(url, data, { params });
@@ -92,7 +78,7 @@ export class AxiosApiClient implements ApiClient {
 
   async put<T>(
     url: string,
-    data?: any,
+    data?: unknown,
     params?: Record<string, string>,
   ): Promise<T> {
     const response = await this.client.put<T>(url, data, { params });
@@ -101,7 +87,7 @@ export class AxiosApiClient implements ApiClient {
 
   async patch<T>(
     url: string,
-    data?: any,
+    data?: unknown,
     params?: Record<string, string>,
   ): Promise<T> {
     const response = await this.client.patch<T>(url, data, { params });

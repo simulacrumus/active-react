@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Item,
   ItemContent,
@@ -14,7 +15,7 @@ interface ScheduleItemProps {
   schedule: Schedule;
 }
 
-export default function ScheduleItem({ schedule }: ScheduleItemProps) {
+const ScheduleItem = React.memo(function ScheduleItem({ schedule }: ScheduleItemProps) {
   const { calculateDistance } = useLocation();
   const { t, i18n } = useTranslation();
 
@@ -115,4 +116,6 @@ export default function ScheduleItem({ schedule }: ScheduleItemProps) {
       </ItemContent>
     </Item>
   );
-}
+});
+
+export default ScheduleItem;

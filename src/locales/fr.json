@@ -19,7 +19,9 @@
     "light": "Clair",
     "dark": "Sombre",
     "system": "Système",
-    "caughtAll": "Vous les avez tous attrapés"
+    "caughtAll": "Vous les avez tous attrapés",
+    "noResultsFound": "Aucun résultat trouvé",
+    "toggleTheme": "Basculer le thème"
   },
   "app": {
     "title": "Active",
@@ -87,6 +89,15 @@
     "action": "J'ai compris"
   },
   "error": {
-    "default": "Désolé, une erreur s'est produite"
+    "default": "Désolé, une erreur s'est produite",
+    "location": {
+      "permissionDenied": "Permission de localisation refusée",
+      "positionUnavailable": "Informations de localisation indisponibles",
+      "timeout": "La demande de localisation a expiré",
+      "unknown": "Une erreur inconnue s'est produite",
+      "notSupported": "La géolocalisation n'est pas prise en charge par votre navigateur",
+      "sortNearbyDenied": "Accès à la localisation refusé. Activez les permissions de localisation dans les paramètres de votre navigateur.",
+      "sortNearbyFailed": "Impossible d'obtenir votre localisation. Activez les permissions de localisation dans les paramètres de votre navigateur."
+    }
   }
 }

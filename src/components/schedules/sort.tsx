@@ -9,12 +9,10 @@ import { Command, CommandGroup, CommandItem, CommandList } from "../ui/command";
 import { useState } from "react";
 import type { ScheduleSort } from "@/types";
 import { cn } from "@/lib/utils";
-import { useLocation } from "@/hooks/useLocation";
 
 export default function ScheduleSort() {
   const { t } = useTranslation();
   const { sort, setSelectedSort, sortOptions } = useSchedules();
-  const {} = useLocation();
 
   const [isOpen, setIsOpen] = useState(false);
 

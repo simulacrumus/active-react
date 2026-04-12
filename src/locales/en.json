@@ -19,7 +19,9 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System",
-    "caughtAll": "You caught all"
+    "caughtAll": "You caught all",
+    "noResultsFound": "No results found",
+    "toggleTheme": "Toggle theme"
   },
   "app": {
     "title": "Active",
@@ -87,6 +89,15 @@
     "action": "Understood"
   },
   "error": {
-    "default": "Sorry, something went wrong"
+    "default": "Sorry, something went wrong",
+    "location": {
+      "permissionDenied": "Location permission denied",
+      "positionUnavailable": "Location information unavailable",
+      "timeout": "Location request timed out",
+      "unknown": "An unknown error occurred",
+      "notSupported": "Geolocation is not supported by your browser",
+      "sortNearbyDenied": "Location access denied. Enable location permissions in your browser settings.",
+      "sortNearbyFailed": "Unable to get your location. Enable location permissions in your browser settings."
+    }
   }
 }
